@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Forward Spatter — AOI Predictor</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Forward Spatter — AOI Predictor</h1>
+      <p class="subtitle">Upload a stain image to predict Angle of Impact (AOI)</p>
+    </header>
+
+    <main>
+      <form method="POST" enctype="multipart/form-data" class="upload-form">
+        <label class="file-dropzone">
+          <input type="file" name="file" accept="image/*" required>
+          <div class="drop-instructions">
+            <strong>Choose a file</strong> or drag it here
+          </div>
+        </label>
+
+        <div class="controls">
+          <button class="btn" type="submit">Predict AOI</button>
+        </div>
+      </form>
+    </main>
+
+    <footer>
+      <small>TEAM 2 — Forward Spatter AOI demo</small>
+    </footer>
+  </div>
+</body>
+</html>

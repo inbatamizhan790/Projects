@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>AOI Result — Forward Spatter</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Prediction Result</h1>
+      <p class="subtitle">Predicted Angle of Impact (AOI)</p>
+    </header>
+
+    <main class="result-main">
+      <div class="result-left">
+        <div id="aoi-badge" class="aoi-badge" data-aoi="{{ pred_aoi }}">
+          <div class="aoi-value">{{ pred_aoi | round(2) }}°</div>
+          <div class="aoi-label">Predicted AOI</div>
+        </div>
+
+        <div class="info">
+          <p><strong>File:</strong> {{ img_file.split('/')[-1] }}</p>
+          <p><strong>Tip:</strong> try uploading different stains to compare predictions.</p>
+        </div>
+
+        <div class="actions">
+          <a href="/" class="btn">Try another image</a>
+          <a href="{{ url_for('static', filename=img_file) }}" target="_blank" class="btn secondary">Open overlay (new tab)</a>
+        </div>
+      </div>
+
+      <div class="result-right">
+        <div class="image-wrap">
+          <img id="result-image" src="{{ url_for('static', filename=img_file) }}" alt="Predicted AOI Image">
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <small>TEAM 2  • Generated preview</small>
+    </footer>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/result.js') }}"></script>
+</body>
+</html>
